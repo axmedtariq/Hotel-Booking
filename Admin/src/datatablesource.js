@@ -11,7 +11,7 @@ export const userColumns = [
 		return (
 
 			<div className="cellWithImg">
-			<img className="cellImg" src={params.row.Img || "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fuser-profile&psig=AOvVaw2pIZBABHXaMSEcCUvNqKX4&ust=1695791544802000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCICZwarJx4EDFQAAAAAdAAAAABAJ"} alt=""/>
+			<img className="cellImg" src={params.row.img || "https://i.ibb.co/MBtjqXQ/no-avatar.gif"} alt=""/>
 			{params.row.username}
 			</div>
 
@@ -21,22 +21,22 @@ export const userColumns = [
 },
 
 {
-	field:"email",
+	field:"Email",
 	headerName:"Email",
 	width:230,
 },
 {
-	field:"country",
+	field:"Country",
 	headerName:"Country",
 	width:100,
 },
 {
-	field:"city",
+	field:"City",
 	headerName:"City",
 	width:100,
 },
 {
-	field:"phone",
+	field:"Phone",
 	headerName:"Phone",
 	width:100,
 },

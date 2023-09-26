@@ -82,7 +82,7 @@
   cursor: pointer;
 }
 
-.date {
+.dates {
   position: absolute;
   top: 50px;
   z-index: 2;
