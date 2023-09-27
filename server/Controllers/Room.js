@@ -38,10 +38,10 @@ export const UpdateRoom = async (req, res) => {
 export const updateRoomAvailability = async (req, res, next) => {
   try {
     await Room.updateOne(
-      { "roomNumbers._id": req.params.id },
+      { "RoomNumbers._id": req.params.id },
       {
         $push: {
-          "roomNumbers.$.unavailableDates": req.body.dates
+          "RoomNumbers.$.unavailableDates": req.body.dates
         },
       }
     );

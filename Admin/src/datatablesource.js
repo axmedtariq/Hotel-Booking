@@ -39,25 +39,10 @@ export const userColumns = [
 	field:"Phone",
 	headerName:"Phone",
 	width:100,
-},
-{
-	field:"status",
-	headerName:"Status",
-	width:160,
-	renderCell:(params) => {
-
-		return (
-
-		<div className={'cellWithStatus ${params.row.status}'}>{params.row.status}</div>
-
-
-		)
-	}
 }
 
-
 ];
-//temporary data for testing datatable 
+///temporary data for testing datatable 
 export const userRows = [
 
 
@@ -145,4 +130,54 @@ export const userRows = [
 
 
 
+];
+
+
+export const hotelColumns = [
+  { field: "_id", headerName: "ID", width: 300 },
+  {
+    field: "name",
+    headerName: "Name",
+    width: 150,
+  },
+  {
+    field: "type",
+    headerName: "Type",
+    width: 100,
+  },
+  {
+    field: "title",
+    headerName: "Title",
+    width: 230,
+  },
+  {
+    field: "city",
+    headerName: "City",
+    width: 100,
+  },
+];
+
+
+export const roomColumns = [
+  { field: "_id", headerName: "ID", width: 70 },
+  {
+    field: "title",
+    headerName: "Title",
+    width: 230,
+  },
+  {
+    field: "desc",
+    headerName: "Description",
+    width: 200,
+  },
+  {
+    field: "price",
+    headerName: "Price",
+    width: 100,
+  },
+  {
+    field: "maxPeople",
+    headerName: "Max People",
+    width: 100,
+  },
 ];

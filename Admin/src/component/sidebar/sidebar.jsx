@@ -16,94 +16,87 @@ import { DarkModecontext } from "../../context/darkModecontext"
 import { useContext } from 'react';
 
 const Sidebar = () => {
-
-	const { dispatch } = useContext(DarkModecontext);
-	return(
-
-	<div className='sidebar'>
-
-	<div className="Top">
-	<Link to="/" style={{ textDecoration:"none" }}>
-		<span className="Logo">TariqAdmin</span>
-		</Link>
-	
-	</div>
-	<hr />
-	<div className="Center">
-		<ul>
-		<p className="title">MAIN</p>
-		<li>
-		<DashboardIcon className="icon" />
-		<span>Dashboard</span>
-		</li>
-		<p className="title">LIST</p>
-		<Link to="/users" style={{ textDecoration:"none" }}>
-		<li>
-		<PersonOutlineOutlinedIcon className="icon" />
-		<span>Users</span>
-		</li>
-		</Link>
-		<Link to="/products" style={{ textDecoration:"none" }}>
-		<li>
-		
-
-		<ProductionQuantityLimitsOutlinedIcon className='icon'/>
-
-
-
-		<span>Products</span>
-		</li>
-		</Link>
-
-		<li>
-
-		<EventNoteOutlinedIcon className="icon" />
-
-		<span>Orders</span>
-		</li>
-		<li>
-		<LocalShippingIcon className="icon" />
-		<span>Delivery</span>
-		</li>
-		<p className="title">USEFULL LINKS</p>
-		<li>
-		<QueryStatsIcon className="icon" />
-		<span>Stats</span>
-		</li>
-		<li>
-         <CircleNotificationsIcon className="icon" />
-		<span>Notifications</span>
-		</li>
-		<p className="title">SERVICE</p>
-		<li>
-        <MonitorHeartOutlinedIcon className='icon' />
-		<span>System Health</span>
-		</li>
-		<li>
-		<PsychologyIcon className="icon"/>
-		<span>Logs</span>
-		</li>
-		<li>
-		<SettingsApplicationsOutlinedIcon  className="icon"/>
-		<span>Settings</span>
-		</li>
-		<p className="title">USER</p>
-		<li>
-		<AccountCircleOutlinedIcon className="icon" />
-		<span>Profile</span>
-		</li>
-		<li>
-		<LogoutOutlinedIcon className="icon" />
-		<span>Logout</span>
-		</li>
-		</ul>
-	</div>
-	<div className="Bottom">
-	<div className="coloroption" onClick={() => dispatch({type: "LIGHT"})}></div>
-	<div className="coloroption" onClick={() => dispatch({type:"DARK"})}></div>
-	</div>
-	</div>
-);
+  const { dispatch } = useContext(DarkModecontext);
+  
+  return (
+    <div className='sidebar'>
+      <div className="Top">
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <span className="Logo">TariqAdmin</span>
+        </Link>
+      </div>
+      <hr />
+      <div className="Center">
+        <ul>
+          <p className="title">MAIN</p>
+          <li>
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <DashboardIcon className="icon" />
+              <span>Dashboard</span>
+            </Link>
+          </li>
+          <p className="title">LIST</p>
+          <Link to="/users" style={{ textDecoration: "none" }}>
+            <li>
+              <PersonOutlineOutlinedIcon className="icon" />
+              <span>Users</span>
+            </li>
+          </Link>
+          <Link to="/hotels" style={{ textDecoration: "none" }}>
+            <li>
+              <ProductionQuantityLimitsOutlinedIcon className='icon' />
+              <span>Hotels</span>
+            </li>
+          </Link>
+          <Link to="/rooms" style={{ textDecoration: "none" }}>
+            <li>
+              <EventNoteOutlinedIcon className="icon" />
+              <span>Rooms</span>
+            </li>
+          </Link>
+          <li>
+            <LocalShippingIcon className="icon" />
+            <span>Delivery</span>
+          </li>
+          <p className="title">USEFUL LINKS</p>
+          <li>
+            <QueryStatsIcon className="icon" />
+            <span>Stats</span>
+          </li>
+          <li>
+            <CircleNotificationsIcon className="icon" />
+            <span>Notifications</span>
+          </li>
+          <p className="title">SERVICE</p>
+          <li>
+            <MonitorHeartOutlinedIcon className='icon' />
+            <span>System Health</span>
+          </li>
+          <li>
+            <PsychologyIcon className="icon" />
+            <span>Logs</span>
+          </li>
+          <li>
+            <SettingsApplicationsOutlinedIcon className="icon" />
+            <span>Settings</span>
+          </li>
+          <p className="title">USER</p>
+          <li>
+            <AccountCircleOutlinedIcon className="icon" />
+            <span>Profile</span>
+          </li>
+          <li>
+            <LogoutOutlinedIcon className="icon" />
+            <span>Logout</span>
+          </li>
+        </ul>
+      </div>
+      <div className="Bottom">
+        <div className="coloroption" onClick={() => dispatch({ type: "LIGHT" })}></div>
+        <div className="coloroption" onClick={() => dispatch({ type: "DARK" })}></div>
+      </div>
+    </div>
+  );
 }
 
 export default Sidebar;
