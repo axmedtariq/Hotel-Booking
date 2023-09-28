@@ -24,7 +24,7 @@ const Widget = ({type}) => {
 			icon: <PersonOutlineIcon  className="icon" style={{color:"crimson", backgroundColor: "rgba(255, 0, 0, 0.25)"}} />,
 		}
 		break;
-		case "orders":
+		case "order":
 
 		data = {
 
@@ -34,7 +34,7 @@ const Widget = ({type}) => {
 			icon: <ShoppingCartOutlinedIcon className="icon" style={{backgroundColor: "rgba(218, 165, 32, 0.32)", color:"goldenrod"}} />,
 		}
 		break;
-		case "earnings":
+		case "earning":
 
 		data = {
 
