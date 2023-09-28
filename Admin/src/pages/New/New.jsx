@@ -1,13 +1,15 @@
 
-import "./New.scss";
+import "./new.scss";
 import Sidebar from "../../component/sidebar/sidebar";
 import Navbar from "../../component/Navbar/navbar";
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import { useState } from 'react';
 
-const New = ({input, title}) => {
+const New = ({inputs, title}) => {
 	const [file, setFile] = useState("");
-	console.log(file)
+
+
+	
 	return (
 
 		<div className="New" >
@@ -27,11 +29,11 @@ const New = ({input, title}) => {
 				<label htmlFor="file">Image:<DriveFolderUploadIcon className="icon" /></label>
 				<input type="file" id="file" onChange={e=>setFile(e.target.files[0])} style={{ display: "none"}} />
 				</div>
-				{input.map((input) => (
+				{inputs?.map((input) => (
 
 				<div className="forminput" key={input.id}>
 				<label>{input.label}</label>
-				<input type={input.type} placeholder={input.placeholder} />
+				<input type={input.type} placeholder={input.placeholder} id={input.id} />
 				</div>
 				))}
 				

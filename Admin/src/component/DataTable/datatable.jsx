@@ -55,7 +55,7 @@ const Datatable = ({columns}) =>{
      <div className="datatableTitle">
 
         Add New User
-        <Link to="/users/new" style={{ textDecoration:"none" }} className="link">
+        <Link to={`/${path}/new`} style={{ textDecoration:"none" }} className="link">
         Add New
         </Link>
         </div>

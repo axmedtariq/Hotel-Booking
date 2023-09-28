@@ -1,5 +1,5 @@
 
-import "./NewRoom.scss";
+import "./newRoom.scss";
 import Sidebar from "../../component/sidebar/sidebar";
 import Navbar from "../../component/Navbar/navbar";
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
