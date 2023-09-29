@@ -5,7 +5,7 @@ import Navbar from "../../component/Navbar/navbar";
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import { useState } from 'react';
 
-const NewRoom = ({input, title}) => {
+const NewRoom = ({inputs, title}) => {
 	const [file, setFile] = useState("");
 	console.log(file)
 	return (
@@ -27,7 +27,7 @@ const NewRoom = ({input, title}) => {
 				<label htmlFor="file">Image:<DriveFolderUploadIcon className="icon" /></label>
 				<input type="file" id="file" onChange={e=>setFile(e.target.files[0])} style={{ display: "none"}} />
 				</div>
-				{input.map((input) => (
+				{inputs?.map((input) => (
 
 				<div className="forminput" key={input.id}>
 				<label>{input.label}</label>

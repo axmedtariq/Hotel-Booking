@@ -21,22 +21,22 @@ export const userColumns = [
 },
 
 {
-	field:"Email",
+	field:"email",
 	headerName:"Email",
 	width:230,
 },
 {
-	field:"Country",
+	field:"country",
 	headerName:"Country",
 	width:100,
 },
 {
-	field:"City",
+	field:"city",
 	headerName:"City",
 	width:100,
 },
 {
-	field:"Phone",
+	field:"phone",
 	headerName:"Phone",
 	width:100,
 }

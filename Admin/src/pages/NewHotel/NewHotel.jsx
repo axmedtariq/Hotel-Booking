@@ -31,7 +31,7 @@ const NewHotel = ({inputs, title}) => {
 				{inputs?.map((input) => (
 
 				<div className="forminput" key={input.id}>
-				<label>{input.label}</label>
+				<label>{input?.label}</label>
 				<input type={input.type} placeholder={input.placeholder} />
 				</div>
 				))}
