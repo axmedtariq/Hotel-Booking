@@ -6,13 +6,13 @@ export const userInputs = [
     placeholder: "john_doe",
   },
   {
-    id: "email",
+    id: "Email",
     label: "Email",
     type: "email",
     placeholder: "john_doe@gmail.com",
   },
   {
-    id: "phone",
+    id: "Phone",
     label: "Phone",
     type: "text",
     placeholder: "+1 234 567 89",
@@ -23,13 +23,13 @@ export const userInputs = [
     type: "password",
   },
   {
-    id: "country",
+    id: "Country",
     label: "Country",
     type: "text",
     placeholder: "USA",
   },
   {
-    id: "city",
+    id: "City",
     label: "City",
     type: "text",
     placeholder: "USA",
