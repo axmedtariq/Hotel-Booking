@@ -4,11 +4,57 @@ import Sidebar from "../../component/sidebar/sidebar";
 import Navbar from "../../component/Navbar/navbar";
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import { useState } from 'react';
-import { HotelInputs } from "../../formSource"
+import { hotelInputs } from "../../formSource";
+import useFetch from "../../hooks/useFetch";
+import axios from "axios";
 
 const NewHotel = ({inputs, title}) => {
-	const [file, setFile] = useState("");
-	console.log(file)
+	const [files, setFiles] = useState("");
+	const [info, setInfo] = useState({});
+	const [rooms, setRooms] = useState();
+	const { data, loading, error } = useFetch("http://localhost:8000/api/room")
+
+  // Update formInputs when inputs prop changes
+  const handleChange = (e) => {
+    setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+
+  const handleSelect = (e) => {
+
+  	const value = Array.from(e.target.options, (option) => option.value);
+  	setRooms(value);
+
+  };
+
+  const handleClick = async (e) => {
+  	e.preventDefault();
+  	try {
+  	const list = await Promise.all(
+  		Object.values(files).map(async (file) => {
+  			const data = new FormData();
+  			data.append("file", file);
+  			data.append("upload_preset", "upload");
+  			const uploadRes = await axios.post("https://api.cloudinary.com/v1_1/tariq23/image/upload", data);
+  			const { url } = uploadRes.data;
+
+  			return url;
+
+  		})
+  		);
+  	const newhotel = {
+  		...info,
+  		rooms,
+  		photos: list,
+  	};
+  	await axios.post("http://localhost:8000/api/hotels", newhotel); 
+  } catch (err) {
+
+  	console.log(err)
+
+  }
+
+
+	console.log(rooms)
 	return (
 
 		<div className="New" >
@@ -16,27 +62,43 @@ const NewHotel = ({inputs, title}) => {
 			<div className="newContainer">
 			<Navbar />
 			<div className="top">
-			<h1>{title}</h1></div>
+			<h1>Add New Product</h1></div>
 	
 			<div className="bottom">
 			<div className="left">
-				<img src={file ? URL.createObjectURL(file) : "http://cdn.onlinewebfonts.com/svg/img_211436.png"} alt=""/>
+				<img src={files ? URL.createObjectURL(files[0]) : "http://cdn.onlinewebfonts.com/svg/img_211436.png"} alt=""/>
 			</div>
 			<div className="right">
 				<form>
 				<div className="forminput">
-				<label htmlFor="file">Image:<DriveFolderUploadIcon className="icon" /></label>
-				<input type="file" id="file" onChange={e=>setFile(e.target.files[0])} style={{ display: "none"}} />
+				<label htmlFor="file">image:<DriveFolderUploadIcon className="icon" /></label>
+				<input type="file" id="file" multiple  onChange={e=>setFiles(e.target.files)} style={{ display: "none"}} />
 				</div>
-				{inputs?.map((input) => (
+				{hotelInputs.map((input) => (
 
 				<div className="forminput" key={input.id}>
-				<label>{input?.label}</label>
-				<input type={input.type} placeholder={input.placeholder} />
+				<label>{input.label}</label>
+				<input id={input.id} onChange={handleChange} type={input.type} placeholder={input.placeholder} />
 				</div>
+
 				))}
+				<div className="forminput">
+				<label>Featured</label>
+				<select id="featured" onChange={handleChange}>
+				<option value={false}>No</option>
+				<option value={true}>Yes</option>
+				</select>
+				</div>
+				<div className="selectRoom">
+				<label>Rooms</label>
+				<select id="rooms" multiple onChange={handleSelect}>
+				{loading ? "loading" : data && data.map(room=>(
+					<option key={room._id} value={room._id}>{room.title}</option>
+					))}
+				</select>
+				</div>
 				
-				<button>Send</button>
+				<button >Send</button>
 
 
 
@@ -48,6 +110,8 @@ const NewHotel = ({inputs, title}) => {
 
 
 		);
+}
+
 }
 
 export default NewHotel;

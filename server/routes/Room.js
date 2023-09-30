@@ -24,7 +24,7 @@ router.delete("/:id/:hotelid",verifyAdmin, deleteRoom);
 router.get("/:hotelId", verifyAdmin, getRoom);
 
 // GET All Rooms 
-router.get("/", verifyAdmin, getRooms );
+router.get("/", getRooms );
 
 
 export default router;

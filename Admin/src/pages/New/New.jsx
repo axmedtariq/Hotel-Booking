@@ -3,7 +3,7 @@ import Sidebar from "../../component/sidebar/sidebar";
 import Navbar from "../../component/Navbar/navbar";
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import { useState } from 'react';
-import axios from "axios";
+import axios from 'axios';
 
 const New = ({ inputs, title }) => {
   const [file, setFile] = useState("");

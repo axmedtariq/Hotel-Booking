@@ -48,7 +48,7 @@ router.delete("/:id", verifyUser, DeleteUser);
 router.get("/:id", verifyUser, GetSingleUser);
 
 // GET All USERS 
-router.get("/", verifyUser, GetAllUser);
+router.get("/",  GetAllUser);
 
 
 
