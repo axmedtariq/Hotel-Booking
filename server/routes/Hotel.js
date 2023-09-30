@@ -14,7 +14,7 @@ import { verifyAdmin } from "../Utills/VerifyToken.js";
 
 // CREATE
 
-router.post("/", verifyAdmin, CreateHotel )
+router.post("/", CreateHotel ) // adding verifyadmin
 
 // UPDATE 
 
@@ -30,7 +30,7 @@ router.delete("/:id",verifyAdmin, DeleteHotel);
 router.get("/find/:id", GetSingleHotel);
 
 // GET All Hotels 
-router.get("/", GetAllHotel);
+router.get("/", GetAllHotel);  // adding verifyadmin
 
 // Get Hotel By city Name
 router.get("/CountHotelsByCity", CountHotelsByCity);

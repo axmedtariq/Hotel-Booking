@@ -21,37 +21,43 @@ const NewHotel = ({inputs, title}) => {
 
   const handleSelect = (e) => {
 
-  	const value = Array.from(e.target.options, (option) => option.value);
-  	setRooms(value);
+  	const selectedOptions = Array.from(e.target.selectedOptions, (option) => option.value);
+  	setRooms(selectedOptions);
 
   };
 
   const handleClick = async (e) => {
-  	e.preventDefault();
-  	try {
-  	const list = await Promise.all(
-  		Object.values(files).map(async (file) => {
-  			const data = new FormData();
-  			data.append("file", file);
-  			data.append("upload_preset", "upload");
-  			const uploadRes = await axios.post("https://api.cloudinary.com/v1_1/tariq23/image/upload", data);
-  			const { url } = uploadRes.data;
+  e.preventDefault();
+  try {
+    const list = await Promise.all(
+      Object.values(files).map(async (file) => {
+        const data = new FormData();
+        data.append("file", file);
+        data.append("upload_preset", "upload");
+        const uploadRes = await axios.post("https://api.cloudinary.com/v1_1/tariq23/image/upload", data);
+        const { url } = uploadRes.data;
+        return url;
+      })
+    );
 
-  			return url;
+    const newhotel = {
+      ...info,
+      rooms,
+      photos: list,
+    };
 
-  		})
-  		);
-  	const newhotel = {
-  		...info,
-  		rooms,
-  		photos: list,
-  	};
-  	await axios.post("http://localhost:8000/api/hotels", newhotel); 
+    // Assuming the URL is correct, you're trying to make a POST request to your local server
+    await axios.post("http://localhost:8000/api/hotels", newhotel);
+    
+    // Log a success message if the request was successful
+    console.log("Hotel data successfully posted.");
+
   } catch (err) {
-
-  	console.log(err)
-
+    // Handle and log any errors that occur during the process
+    console.error("Error:", err);
   }
+};
+
 
 
 	console.log(rooms)
@@ -98,7 +104,7 @@ const NewHotel = ({inputs, title}) => {
 				</select>
 				</div>
 				
-				<button >Send</button>
+				<button onClick={handleClick}>Send</button>
 
 
 
@@ -112,6 +118,6 @@ const NewHotel = ({inputs, title}) => {
 		);
 }
 
-}
+
 
 export default NewHotel;

@@ -3,12 +3,18 @@ const router = express.Router();
 import Room from "../models/Rooms.js";
 import Hotel from "../models/Hotel.js";
 import { verifyAdmin } from '../Utills/VerifyToken.js';
-import { createRoom, UpdateRoom, updateRoomAvailability, deleteRoom, getRoom, getRooms } from '../Controllers/Room.js';
-router.post("/", verifyAdmin, createRoom  )
+import { createRoom, UpdateRoom, 
+updateRoomAvailability, 
+deleteRoom,
+getRoom, 
+getRooms } from '../Controllers/Room.js';
+
+// POST
+router.post("/", createRoom  ) // adding verifyadmin
 
 // UPDATE 
 
-router.post("/:hotelid", verifyAdmin, createRoom)
+router.post("/:hotelid",  createRoom) // adding verifyadmin
 
 router.put("/:hotelid",verifyAdmin, UpdateRoom);
 router.put("/availability/:id", updateRoomAvailability);

@@ -54,7 +54,7 @@ const Datatable = ({columns}) =>{
     <div className="datatable">
      <div className="datatableTitle">
 
-        {path}
+        Add New {path}
         <Link to={`/${path}/new`} style={{ textDecoration:"none" }} className="link">
         Add New
         </Link>
@@ -68,8 +68,6 @@ const Datatable = ({columns}) =>{
         rowsPerPageOptions={[11]}
         checkboxSelection
         getRowId={(row) => row._id}/>
-
-      />
 			
 
 

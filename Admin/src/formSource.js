@@ -89,7 +89,7 @@ export const hotelInputs = [
     placeholder: "New York",
   },
   {
-    id: "address",
+    id: "Address",
     label: "Address",
     type: "text",
     placeholder: "elton st, 216",
